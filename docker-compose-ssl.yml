@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
     nginx-proxy:
-        image: jwilder/nginx-proxy:alpine
+        image: nginxproxy/nginx-proxy
         container_name: nginx-proxy
         ports:
             - "443:443"
@@ -13,9 +13,9 @@ services:
             - ./custom_nginx_config.conf:/etc/nginx/conf.d/custom_nginx_config.conf
             - /var/run/docker.sock:/tmp/docker.sock:ro
         networks:
-            - example-network
+            - verloning-network
         restart: always
 
 networks:
-    example-network:
+    verloning-network:
         external: true
